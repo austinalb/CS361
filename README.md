@@ -86,3 +86,6 @@ Example Response:
 {
   "fernet": "b64_encoded_string_of_fernet_key"
 }
+
+
+![UML Sequence Diagram](1Capture.png)
