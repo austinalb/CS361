@@ -14,7 +14,9 @@ Communication Contract
 This section outlines the established protocol for programmatic interaction with the microservice. This contract is considered stable and should not be altered, as the main client application depends on this specific implementation.
 
 Communication Protocol: ZeroMQ REQ/REP Socket Pattern
+
 Network Address: tcp://localhost:5555
+
 Data Serialization Format: All data exchanged between the client and the microservice must be serialized into single JSON objects.
 
 Programmatic Data Requests
