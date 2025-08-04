@@ -88,4 +88,4 @@ Example Response:
 }
 
 
-![UML Sequence Diagram](1Capture.png)
+![UML Sequence Diagram](1Capture.PNG)
