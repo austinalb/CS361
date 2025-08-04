@@ -22,14 +22,18 @@ A client application initiates a transaction by sending a structured JSON object
 
 1. Generate Keys
 This operation instructs the microservice to generate a complete set of cryptographic keys for a new secure session. This includes a 2048-bit RSA asymmetric key pair (public and private) and a Fernet symmetric key.
+
 Example Call:
+
 {
   "type": "generate_keys"
 }
 
 2. Encrypt Fernet Key
 This operation is used to securely prepare the symmetric Fernet key for transmission. It encrypts the Fernet key using the recipient's public RSA key, ensuring that only the recipient (who holds the corresponding private key) can decrypt it.
+
 Example Call:
+
 {
   "type": "encrypt_fernet",
   "fernet": "<base64-encoded Fernet key>",
@@ -38,7 +42,9 @@ Example Call:
 
 3. Decrypt Fernet Key
 This operation recovers the original Fernet key from a ciphertext. The client provides the encrypted Fernet key and its private RSA key, and the microservice performs the decryption.
+
 Example Call:
+
 {
   "type": "decrypt_fernet",
   "encrypted_fernet": "<base64-encoded ciphertext>",
@@ -50,7 +56,9 @@ Upon successfully processing a request, the microservice returns a single JSON o
 
 1. Response for generate_keys
 The response contains the newly generated RSA public key, RSA private key, and the Fernet key, all formatted for immediate use or storage.
+
 Example Response:
+
 {
   "rsa": {
     "public": "-----BEGIN RSA PUBLIC KEY-----\n...\n-----END RSA PUBLIC KEY-----",
@@ -61,6 +69,7 @@ Example Response:
 
 2. Response for encrypt_fernet
 The response payload consists of the base64-encoded ciphertext, which is the result of encrypting the Fernet key.
+
 Example Response:
 
 {
@@ -69,7 +78,9 @@ Example Response:
 
 3. Response for decrypt_fernet
 The response contains the original Fernet key after it has been successfully decrypted from the provided ciphertext.
+
 Example Response:
+
 {
   "fernet": "b64_encoded_string_of_fernet_key"
 }
